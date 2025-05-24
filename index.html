@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Valuation Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Business Valuation Calculator</h1>
+        
+        <div class="calculator-grid">
+            <div class="input-section">
+                <h2>Business Information</h2>
+                <form id="valuationForm">
+                    <div class="form-group">
+                        <label for="revenue">Annual Revenue ($)</label>
+                        <input type="number" id="revenue" required min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ebitda">EBITDA ($)</label>
+                        <input type="number" id="ebitda" required min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sector">Industry Sector</label>
+                        <select id="sector" required>
+                            <option value="saas">SaaS</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="retail">Retail</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="fintech">Fintech</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="growthRate">Growth Rate (%)</label>
+                        <input type="number" id="growthRate" required min="0" max="100">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="riskLevel">Risk Level</label>
+                        <select id="riskLevel" required>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" id="calculateBtn">Calculate Valuation</button>
+                </form>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h2>Valuation Summary</h2>
+                <div class="valuation-range">
+                    <h3>Estimated Valuation Range</h3>
+                    <div class="range-values">
+                        <span id="valuationLow">$0</span> - <span id="valuationHigh">$0</span>
+                    </div>
+                </div>
+
+                <div class="valuation-methods">
+                    <h3>Valuation Method Breakdown</h3>
+                    <div class="method" id="ebitdaMultiple">
+                        <h4>EBITDA Multiple</h4>
+                        <p class="value">$0</p>
+                    </div>
+                    <div class="method" id="dcf">
+                        <h4>Discounted Cash Flow (DCF)</h4>
+                        <p class="value">$0</p>
+                    </div>
+                    <div class="method" id="comparables">
+                        <h4>Comparable Companies</h4>
+                        <p class="value">$0</p>
+                    </div>
+                </div>
+
+                <div class="recommendations">
+                    <h3>Recommendations</h3>
+                    <ul id="recommendationsList">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 
